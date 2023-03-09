@@ -5,18 +5,19 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include "client.h"
 #include <iostream>
 #define PORT 8080
 
-int main(int argc, char const *argv[])
+int socket_start(int argc, char const *argv[])
 {
     int status, valread, client_fd;
     struct sockaddr_in serv_addr;
     char *hello = "Hello from client";
     char buffer[1024] = {0};
-    std::cout << "Starting server \n";
-    if ((client_fd = socket(AF_INET,
-                            SOCK_STREAM, 0)) < 0)
+    std::cout << "Starting serve \n";
+    if ((client_fd = socket(AF_INET, 
+    SOCK_STREAM, 0)) < 0)
     {
         printf("\n Socket creation error \n");
         return -1;
